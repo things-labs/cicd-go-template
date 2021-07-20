@@ -31,7 +31,7 @@ jobs:
     - name: Go test windows
       if: matrix.os == 'windows-latest'
       run: |
-        go test -v -covermode=atomic ./...
+        go test -v -race -coverprofile=coverage -covermode=atomic ./...
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
@@ -39,3 +39,24 @@ jobs:
         files: ./coverage
         flags: unittests
         verbose: true
+
+    - name: Print Go environment
+      id: vars
+      run: |
+        printf "Using go at: $(which go)\n"
+        printf "Go version: $(go version)\n"
+        printf "\n\nGo environment:\n\n"
+        go env
+        printf "\n\nSystem environment:\n\n"
+        env
+        # Calculate the short SHA1 hash of the git commit
+        echo "::set-output name=short_sha::$(git rev-parse --short HEAD)"
+        echo "::set-output name=go_cache::$(go env GOCACHE)"
+
+    - name: Cache go modules
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.vars.outputs.go_cache }}
+        key: ${{ runner.os }}-${{ matrix.go-version }}-go-ci-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-${{ matrix.go-version }}-go-ci
