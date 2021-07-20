@@ -1,5 +1,5 @@
 # CD/CD pipeline template
-cid pipeline template and test useful or not 
+CD/CD pipeline template and test useful or not 
 
 [![GoDoc](https://godoc.org/github.com/thinkgos/cicd-pipeline-template?status.svg)](https://godoc.org/github.com/thinkgos/cicd-pipeline-template)
 [![Go.Dev reference](https://img.shields.io/badge/go.dev-reference-blue?logo=go&logoColor=white)](https://pkg.go.dev/github.com/thinkgos/cicd-pipeline-template?tab=doc)
