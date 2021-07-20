@@ -1,4 +1,4 @@
-# cid-pipeline
+# CD/CD pipeline template
 cid pipeline template and test useful or not 
 
 [![GoDoc](https://godoc.org/github.com/thinkgos/cicd-pipeline-template?status.svg)](https://godoc.org/github.com/thinkgos/cicd-pipeline-template)

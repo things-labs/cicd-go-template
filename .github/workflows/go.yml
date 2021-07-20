@@ -1,5 +1,18 @@
 name: Go
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    branches:
+      - main
+      - master
+    paths-ignore:
+      - '**.md'
+
 jobs:
   build:
     name: Build on GO ${{matrix.go-version}}
