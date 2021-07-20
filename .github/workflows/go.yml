@@ -32,6 +32,29 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
 
+    - name: Print Go environment
+      id: vars
+      run: |
+        printf "Using go at: $(which go)\n"
+        printf "Go version: $(go version)\n"
+        printf "\n\nGo environment:\n\n"
+        go env
+        printf "\n\nSystem environment:\n\n"
+        env
+        # Calculate the short SHA1 hash of the git commit
+        echo "::set-output name=short_sha::$(git rev-parse --short HEAD)"
+        echo "::set-output name=go_cache::$(go env GOCACHE)"
+
+    - name: Cache go modules
+      uses: actions/cache@v2
+      with:
+        path: |
+          ${{ steps.vars.outputs.go_cache }}
+          ~/go/pkg/mod
+        key: ${{ runner.os }}-${{ matrix.go-version }}-go-ci-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-${{ matrix.go-version }}-go-ci-
+
     - name: Go test osx linux
       if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
       run: |
@@ -49,23 +72,3 @@ jobs:
         flags: unittests
         verbose: true
 
-    - name: Print Go environment
-      id: vars
-      run: |
-        printf "Using go at: $(which go)\n"
-        printf "Go version: $(go version)\n"
-        printf "\n\nGo environment:\n\n"
-        go env
-        printf "\n\nSystem environment:\n\n"
-        env
-        # Calculate the short SHA1 hash of the git commit
-        echo "::set-output name=short_sha::$(git rev-parse --short HEAD)"
-        echo "::set-output name=go_cache::$(go env GOCACHE)"
-
-    - name: Cache go modules
-      uses: actions/cache@v2
-      with:
-        path: ${{ steps.vars.outputs.go_cache }}
-        key: ${{ runner.os }}-${{ matrix.go-version }}-go-ci-${{ hashFiles('**/go.sum') }}
-        restore-keys: |
-          ${{ runner.os }}-${{ matrix.go-version }}-go-ci
