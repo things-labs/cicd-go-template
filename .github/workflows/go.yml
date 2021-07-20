@@ -48,10 +48,12 @@ jobs:
     - name: Cache go modules
       uses: actions/cache@v2
       with:
-        path: ${{ steps.vars.outputs.go_cache }}
+        path: |
+          ${{ steps.vars.outputs.go_cache }}
+          ~/go/pkg/mod
         key: ${{ runner.os }}-${{ matrix.go-version }}-go-ci-${{ hashFiles('**/go.sum') }}
         restore-keys: |
-          ${{ runner.os }}-${{ matrix.go-version }}-go-ci
+          ${{ runner.os }}-${{ matrix.go-version }}-go-ci-
 
     - name: Go test osx linux
       if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
