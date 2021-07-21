@@ -1,4 +1,4 @@
-module github/thinkgos/cpt
+module github/things-labs/cpt
 
 go 1.15
 
