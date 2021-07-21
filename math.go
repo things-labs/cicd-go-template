@@ -18,3 +18,8 @@ func Div(a, b int) int {
 	}
 	return a / b
 }
+
+func Add2(a, b int) int {
+	a = a + b
+	return a
+}
