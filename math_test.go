@@ -74,6 +74,7 @@ func TestDiv(t *testing.T) {
 		want int
 	}{
 		{"div", args{10, 2}, 5},
+		{"div 0", args{10, 2}, 0},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
