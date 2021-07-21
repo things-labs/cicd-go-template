@@ -1,15 +1,14 @@
 name: Tests
+
 on:
   push:
     branches:
       - main
-      - master
     paths-ignore:
       - '**.md'
   pull_request:
     branches:
       - main
-      - master
     paths-ignore:
       - '**.md'
 
@@ -19,7 +18,7 @@ env:
 
 jobs:
   build:
-    name: Test on Go
+    name: Test on ${{matrix.os}} @Go${{ matrix.go-version }}
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
@@ -47,6 +46,7 @@ jobs:
           # Calculate the short SHA1 hash of the git commit
           echo "::set-output name=short_sha::$(git rev-parse --short HEAD)"
           echo "::set-output name=go_cache::$(go env GOCACHE)"
+
       - name: Cache go modules
         uses: actions/cache@v2
         with:
@@ -56,14 +56,17 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.go-version }}-go-ci-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.go-version }}-go-ci
+
       - name: Go test osx linux
         if: runner.os == 'ubuntu-latest' || runner.os == 'macos-latest'
         run: |
           go test -v -benchmem -test.bench=".*" -coverprofile=coverage -covermode=atomic ./...
+
       - name: Go test windows
         if: runner.os == 'windows-latest'
         run: |
           go test -v -race -coverprofile=coverage -covermode=atomic ./...
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
         with:
