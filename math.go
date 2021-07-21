@@ -11,3 +11,10 @@ func Sub(a, b int) int {
 func Mul(a, b int) int {
 	return a * b
 }
+
+func Div(a, b int) int {
+	if b == 0 {
+		return 0
+	}
+	return a / b
+}
