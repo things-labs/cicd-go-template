@@ -14,8 +14,8 @@ env:
 
 jobs:
   build:
-    name: Test on ${{matrix.os}} @Go${{ matrix.go-version }}
-    runs-on: ${{matrix.os}}
+    name: Test on ${{ matrix.os }} @Go${{ matrix.go-version }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         go-version: ["1.15.x", "1.16.x"]
@@ -54,12 +54,12 @@ jobs:
             ${{ runner.os }}-${{ matrix.go-version }}-go-ci
 
       - name: Go test osx linux
-        if: runner.os == 'ubuntu-latest' || runner.os == 'macos-latest'
+        if: ${{ runner.os }} == 'ubuntu-latest' || ${{ runner.os }} == 'macos-latest'
         run: |
           go test -v -benchmem -test.bench=".*" -coverprofile=coverage -covermode=atomic ./...
 
       - name: Go test windows
-        if: runner.os == 'windows-latest'
+        if: ${{ runner.os }} == 'windows-latest'
         run: |
           go test -v -race -coverprofile=coverage -covermode=atomic ./...
 
