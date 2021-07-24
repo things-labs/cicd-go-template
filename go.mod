@@ -1,5 +1,5 @@
-module github/things-labs/cpt
+module github/things-labs/cgt
 
 go 1.15
 
-require github.com/stretchr/testify v1.7.0
+require github.com/stretchr/testify v1.6.1
