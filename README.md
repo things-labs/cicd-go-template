@@ -10,3 +10,19 @@ CD/CD go template and test useful or not
 [![Tag](https://img.shields.io/github/v/tag/things-labs/cicd-go-template)](https://github.com/things-labs/cicd-go-template/tags)
 
 
+This is template that help you to quick implement some library using Go.
+
+This repository is contains following.
+
+- CI/CD
+    - golangci-lint
+    - go test
+    - CodeQL Analysis (Go)
+    - dependabot for github-actions and Go
+
+## How to use
+1. copy this repository
+2. rename repository name   
+3. replace "things-labs" to your self username using sed(or others)
+4. run make init
+5: done
