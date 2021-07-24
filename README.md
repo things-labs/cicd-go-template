@@ -21,11 +21,10 @@ This repository is contains following.
     - dependabot for github-actions and Go
 
 ## How to use
-1. copy this repository
-2. rename repository name   
-3. replace "things-labs" to your self username using sed(or others)
-4. run make init 
-5: done
+1. action Use this template and then create a repository
+2. replace "things-labs" to your self username using sed(or others)
+3. run make init 
+4: done
 
 
 ## References
