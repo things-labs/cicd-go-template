@@ -24,9 +24,13 @@ This repository is contains following.
 1. copy this repository
 2. rename repository name   
 3. replace "things-labs" to your self username using sed(or others)
-4. run make init
+4. run make init 
 5: done
 
 
-### References
+## References
 - [go-lib-template](https://github.com/skanehira/go-lib-template)
+
+## License
+
+This project is under MIT License. See the [LICENSE](LICENSE) file for the full license text.
