@@ -26,3 +26,7 @@ This repository is contains following.
 3. replace "things-labs" to your self username using sed(or others)
 4. run make init
 5: done
+
+
+### References
+- [go-lib-template](https://github.com/skanehira/go-lib-template)
