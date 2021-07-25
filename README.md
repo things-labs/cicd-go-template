@@ -25,7 +25,30 @@ This repository is contains following.
 2. replace "things-labs" to your self username using sed(or others)
 3. run make init 
 4: done
+   
+## Features
 
+
+## Usage
+
+### Installation
+
+Use go get.
+```bash
+    go get github.com/things-go/cicd-go-template
+```
+
+Then import the modbus package into your own code.
+```bash
+    import modbus "github.com/things-go/cicd-go-template"
+```
+
+### Example
+
+[embedmd]:# (_examples/main.go go)
+```go
+
+```
 
 ## References
 - [go-lib-template](https://github.com/skanehira/go-lib-template)
