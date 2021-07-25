@@ -1,4 +1,4 @@
-module github/things-labs/cicd-go-template
+module github.com/things-labs/cicd-go-template
 
 go 1.15
 

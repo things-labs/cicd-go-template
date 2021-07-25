@@ -9,7 +9,6 @@ CD/CD go template and test useful or not
 [![Licence](https://img.shields.io/github/license/things-labs/cicd-go-template)](https://raw.githubusercontent.com/things-labs/cicd-go-template/main/LICENSE)
 [![Tag](https://img.shields.io/github/v/tag/things-labs/cicd-go-template)](https://github.com/things-labs/cicd-go-template/tags)
 
-
 This is template that help you to quick implement some library using Go.
 
 This repository is contains following.
