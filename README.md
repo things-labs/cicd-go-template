@@ -37,9 +37,9 @@ Use go get.
     go get github.com/things-go/cicd-go-template
 ```
 
-Then import the modbus package into your own code.
+Then import the package into your own code.
 ```bash
-    import modbus "github.com/things-go/cicd-go-template"
+    import "github.com/things-go/cicd-go-template"
 ```
 
 ### Example
