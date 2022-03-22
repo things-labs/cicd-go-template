@@ -44,7 +44,7 @@ jobs:
           echo "::set-output name=go_cache::$(go env GOCACHE)"
 
       - name: Cache go modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             ${{ steps.vars.outputs.go_cache }}
