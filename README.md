@@ -34,12 +34,12 @@ This repository is contains following.
 
 Use go get.
 ```bash
-    go get github.com/things-go/cicd-go-template
+    go get github.com/things-labs/cicd-go-template
 ```
 
 Then import the package into your own code.
 ```bash
-    import "github.com/things-go/cicd-go-template"
+    import "github.com/things-labs/cicd-go-template"
 ```
 
 ### Example
